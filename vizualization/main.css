@@ -138,3 +138,13 @@
 #control > input[type="text"] {
     width: 50px;
 }
+
+#score {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 28px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 10px;
+}

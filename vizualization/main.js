@@ -127,6 +127,10 @@ let draw_solution = function() {
             let pos = sprite_pos[board_size][val.join(',')].map((val, index, arr) => `${val}px`).join(' ');
             $('#site' + index).css('background', `url("${img_url}") ` + pos);
         });
+        let score = solutions[index].map(function (val, index, arr) {
+            return val.reduce((x, y) => x+y, 0);
+        }).reduce((x, y) => x+y, 0);
+        $('#score').text(`${score}`);
     }
 };
 
