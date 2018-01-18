@@ -112,6 +112,12 @@ let sprite_pos = {
     },
 };
 
+let score_size = {
+    'full': '56px',
+    '512px': '42px',
+    '386px': '28px',
+};
+
 
 let draw_solution = function() {
     let solutions = JSON.parse(localStorage.getItem('solutions'));
@@ -127,10 +133,12 @@ let draw_solution = function() {
             let pos = sprite_pos[board_size][val.join(',')].map((val, index, arr) => `${val}px`).join(' ');
             $('#site' + index).css('background', `url("${img_url}") ` + pos);
         });
+        let jq_score = $('#score');
         let score = solutions[index].map(function (val, index, arr) {
             return val.reduce((x, y) => x+y, 0);
         }).reduce((x, y) => x+y, 0);
-        $('#score').text(`${score}`);
+        jq_score.text(`${score}`);
+        jq_score.css('font-size', score_size[board_size]);
     }
 };
 
